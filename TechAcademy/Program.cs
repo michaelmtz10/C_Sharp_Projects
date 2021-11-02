@@ -1,35 +1,43 @@
 ﻿using System;
 
-
-namespace TechAcademy
+namespace Branching_Assignment
 {
     class Program
     {
         static void Main()
         {
-            Console.WriteLine("The Tech Academy.");
-            Console.WriteLine("Student Daily Report.");
-            Console.WriteLine("What is your name?");
-            string fname = Console.ReadLine();
-            Console.WriteLine("Hello " + fname + " !");
-            Console.WriteLine("what course are you on?");
-            string coursename = Console.ReadLine();
-            Console.WriteLine("You are in the " + coursename + " course!");
-            Console.WriteLine("What page number are you on?");
-            int coursenum = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Do you need help with anything? Please answer " + "\"true\"" + " or " + "\"false\"");
-            string answer = Console.ReadLine();
-            Console.WriteLine("Were there any positive experiences you'd like to share? Please give specifics!");
-            string user_response = Console.ReadLine();
-            Console.WriteLine("Thank you for sharing!");
-            Console.ReadLine();
-            Console.WriteLine("Is there any feedback you'd like to provide? Please be specific.");
-            Console.ReadLine();
-            Console.WriteLine("How many hours did you study today?");
-            Console.ReadLine();
-            Console.WriteLine("Thank you for your answers. An Instructor will respond to this shortly. Have a great day!");
-            Console.ReadLine();
-
+            Console.WriteLine("Welcome to the Package Express. Please follow the instructions below.");
+            Console.WriteLine("What is the weight of your package?");
+            double package = Convert.ToDouble(Console.ReadLine());  // convert input into double incase non exact whole number dimension
+            double max = 50;
+            if (package > max)      // if weight is greater than max then display necessary info, if not ask for next measurement
+            {
+                Console.WriteLine("Package is too heavy to be shipped via Package Express. Have a good day.");
+            }
+            else
+            {
+                Console.WriteLine("What is the package height?");
+            }
+            double p_height = Convert.ToDouble(Console.ReadLine()); // if weight under max get heigh and convert to double
+            if (p_height > max)
+            {
+                Console.WriteLine("Package is too long to be shipped by Package Express.");
+            }
+            else
+            {
+                Console.WriteLine("What is the package length?");
+            }
+            double p_length = Convert.ToDouble(Console.ReadLine()); // if height less than max get length
+            if (p_length > max)
+            {
+                Console.WriteLine("Your package is to big to be shipped by Package Express.");
+            }
+            else
+            {
+                double quote = package * p_height * p_length / 100; // if all dimensions fall under max, multiply within themselves and divide by 100 to get price.
+                Console.WriteLine("The price to ship your package is : ${0}", quote);
+                Console.Read();
+            }
 
         }
     }
